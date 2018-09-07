@@ -1,24 +1,16 @@
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column
-from sqlalchemy.types import (
-    Unicode,
-    String,
-    Boolean,
-    Float,
-    DateTime,
-)
+from core.models import db
 
-db = SQLAlchemy()
 
 class User(db.Model):
-    first_name = Column(Unicode(100))
-    last_name = Column(Unicode(100))
-    auth_sub = Column(String(100))
-    notifications_enabled = Column(Boolean())
-    notifications_radius_meters = Column(Float)
-    phone = Column(String(100))
-    email = Column(String(100))
-    avatar = Column(String(100))
-    expires_at = Column(DateTime())
-    created_at = Column(DateTime())
-    updated_at = Column(DateTime())
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.Unicode(100))
+    last_name = db.Column(db.Unicode(100))
+    auth_sub = db.Column(db.String(100))
+    notifications_enabled = db.Column(db.Boolean())
+    notifications_radius_meters = db.Column(db.Float())
+    phone = db.Column(db.String(100))
+    email = db.Column(db.String(100))
+    avatar = db.Column(db.String(100))
+    expires_at = db.Column(db.DateTime())
+    created_at = db.Column(db.DateTime())
+    updated_at = db.Column(db.DateTime())
