@@ -1,4 +1,4 @@
-from app-api.core.models import db
+from core.models import db
 
 
 class User(db.Model):
