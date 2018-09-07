@@ -21,4 +21,4 @@ class User(db.Model):
     avatar = Column(String(100))
     expires_at = Column(DateTime())
     created_at = Column(DateTime())
-    updated_at = Column(DateTCreate to ime())
+    updated_at = Column(DateTime())
