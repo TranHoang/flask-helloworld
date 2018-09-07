@@ -3,8 +3,8 @@ import os
 from flask import Flask
 from flask_migrate import Migrate
 
-from .core import db
-from .user import user_api
+from core import db
+from user import user_api
 
 app = Flask(__name__)
 
