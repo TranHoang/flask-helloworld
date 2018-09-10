@@ -3,10 +3,11 @@ import os
 from flask import Flask
 from flask_restful import Api
 from flask_migrate import Migrate
-
+from flask_jwt import JWT
 
 from core import db, bcrypt
 from user import UserResource, UserListResource
+from auth.authentication import authenticate, identity
 from todo import ToDoResource
 
 app = Flask(__name__)
@@ -26,6 +27,8 @@ db.app = app
 db.init_app(app)
 
 bcrypt.init_app(app)
+
+jwt = JWT(app, authenticate, identity)
 
 migrate = Migrate(app, db) # this
 
