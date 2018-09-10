@@ -19,3 +19,6 @@ flask-restful==0.3.6
 # Flask-Bcrypt is a Flask extension that provides bcrypt hashing utilities for your application.
 # Homepage: https://flask-bcrypt.readthedocs.io/en/latest/
 flask-bcrypt==0.7.1
+
+# Homepage: https://flask-jwt.readthedocs.io/en/latest/
+flask-jwt==0.3.2
