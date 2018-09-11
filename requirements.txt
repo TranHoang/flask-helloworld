@@ -22,3 +22,8 @@ flask-bcrypt==0.7.1
 
 # Homepage: https://flask-jwt-extended.readthedocs.io/
 flask-jwt-extended==3.12.1
+
+# Psycopg is the most popular PostgreSQL adapter for the Python programming language.
+# At its core it fully implements the Python DB API 2.0 specifications.
+# Homepage: http://initd.org/psycopg/
+psycopg2==2.7.5
