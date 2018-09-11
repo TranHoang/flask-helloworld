@@ -1,10 +1,9 @@
 from datetime import datetime
 
 from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
 
+# Shared db module between models.py inside modules (todo, user,...)
 db = SQLAlchemy()
-bcrypt = Bcrypt()
 
 class TimestampMixin(object):
     created = db.Column(
