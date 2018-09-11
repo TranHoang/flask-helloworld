@@ -1,4 +1,5 @@
 from datetime import datetime
+from flask import abort
 from flask_restful import(
     Resource,
     Api,
@@ -41,7 +42,10 @@ class TodoResource(Resource):
         todo = Todo.query \
             .by_owner_and_id(user_id, id) \
             .first()
-        return todo
+        if todo:
+            return todo
+        else:
+            abort(404)
 
     @jwt_required
     @marshal_with(resource_fields)
@@ -54,7 +58,8 @@ class TodoResource(Resource):
         todo = Todo.query \
             .by_owner_and_id(user_id, id) \
             .first()
-
+        if todo is None:
+            abort(404)
         todo.update(data)
         return todo
 

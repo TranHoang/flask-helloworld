@@ -1,3 +1,4 @@
+from flask import abort
 from flask_restful import (
     Resource,
     Api,
@@ -26,7 +27,10 @@ class UserResource(Resource):
     @marshal_with(resource_fields)
     def get(self, user_id):
         user = User.query.get_by_id(user_id)
-        return user if user else None
+        if user is None:
+            abort(404)
+        else:
+            return user
 
 
 #################################################################
