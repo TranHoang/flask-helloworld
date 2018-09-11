@@ -1,1 +1,6 @@
-from .apis import ToDoResource
+from .apis import (
+    TodoResource,
+    TodoListResource,
+    CompletedTodoListResource,
+    UnCompletedTodoListResource,
+)
