@@ -1,10 +1,7 @@
 from flask_sqlalchemy import BaseQuery
 
-from core.models import (
-    db,
-    bcrypt,
-    TimestampMixin
-)
+from core import bcrypt
+from core.models import db, TimestampMixin
 
 
 class UserQuery(BaseQuery):
