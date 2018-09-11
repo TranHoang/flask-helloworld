@@ -5,6 +5,7 @@ from flask_restful import (
     reqparse
 )
 
+from core import api
 from user.models import User
 
 #################################################################
@@ -23,3 +24,7 @@ class AuthenticationResource(Resource):
         if user and user.check_password(data['password']):
             access_token = create_access_token(identity=user.id)
             return {'access_token': access_token}
+
+
+# Register API
+api.add_resource(AuthenticationResource, '/auth')
