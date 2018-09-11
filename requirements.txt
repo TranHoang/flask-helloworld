@@ -20,5 +20,5 @@ flask-restful==0.3.6
 # Homepage: https://flask-bcrypt.readthedocs.io/en/latest/
 flask-bcrypt==0.7.1
 
-# Homepage: https://flask-jwt.readthedocs.io/en/latest/
-flask-jwt==0.3.2
+# Homepage: https://flask-jwt-extended.readthedocs.io/
+flask-jwt-extended==3.12.1
