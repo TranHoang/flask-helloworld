@@ -1,7 +1,13 @@
 import os
 from datetime import timedelta
 
-postgres_uri = 'postgresql://postgres:postgres@localhost/api'
+db_config = {
+    'user_name': os.getenv('DB_USER_NAME', 'postgres'),
+    'password': os.getenv('DB_PWD', 'postgres'),
+    'db_host': os.getenv('DB_HOST', 'localhost'),
+    'db_name': os.getenv('DB_NAME', 'api')
+}
+postgres_uri = 'postgresql://{user_name}:{password}@{db_host}/{db_name}'.format(**db_config)
 
 class BaseConfig():
     """
