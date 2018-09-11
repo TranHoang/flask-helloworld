@@ -47,6 +47,7 @@ class User(db.Model, TimestampMixin):
     @classmethod
     def create_new_user(cls, data):
         user = User.query.get_by_email(email=data['email'])
+
         if not user:
             new_user = User(
                 email=data['email'],
@@ -57,5 +58,4 @@ class User(db.Model, TimestampMixin):
 
             db.session.add(new_user)
             db.session.commit()
-
-        return user
+            return new_user
