@@ -1,11 +1,13 @@
 from flask_restful import (
     Resource,
+    Api,
     fields,
     marshal_with,
     marshal,
     reqparse)
 from flask_jwt_extended import create_access_token
 
+from core import api
 from .models import User
 
 resource_fields = {
@@ -24,7 +26,7 @@ class UserResource(Resource):
     @marshal_with(resource_fields)
     def get(self, user_id):
         user = User.query.get_by_id(user_id)
-        return user if user else None , 404
+        return user if user else None
 
 
 #################################################################
@@ -46,3 +48,7 @@ class UserListResource(Resource):
         user = User.create_new_user(data)
         user.access_token = create_access_token(identity=user.email)
         return marshal(user, resource_fields)
+
+# Register API
+api.add_resource(UserResource, '/user/<user_id>')
+api.add_resource(UserListResource, '/users')

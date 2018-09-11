@@ -1,12 +1,14 @@
 from datetime import datetime
 from flask_restful import(
     Resource,
+    Api,
     reqparse,
     marshal,
     marshal_with,
     fields)
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from core.utils import date_time_parsing, SerializeDateTime
+from core import api
 from .models import Todo
 
 resource_fields = {
@@ -35,6 +37,7 @@ class TodoResource(Resource):
     @marshal_with(resource_fields)
     def get(self, id):
         user_id = get_jwt_identity()
+        print(user_id, id)
         todo = Todo.query \
             .by_owner_and_id(user_id, id) \
             .first()
@@ -105,3 +108,10 @@ class UnCompletedTodoListResource(Resource):
             .by_owner(user_id) \
             .uncompleted().all()
         return todos
+
+
+# Register API
+api.add_resource(TodoResource, '/todo/<id>')
+api.add_resource(TodoListResource, '/todos')
+api.add_resource(CompletedTodoListResource, '/todos/completed')
+api.add_resource(UnCompletedTodoListResource, '/todos/uncompleted')
