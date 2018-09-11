@@ -1,7 +1,7 @@
 import os
 from datetime import timedelta
 
-postgres_uri = 'postgresql://postgres:123456@localhost/api'
+postgres_uri = 'postgresql://postgres:postgres@localhost/api'
 
 class BaseConfig():
     """
@@ -18,7 +18,6 @@ class DevelopmentConfig(BaseConfig):
     """
     Configuration for development env
     """
-
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', "sqlite:///db.sqlite3")
 
