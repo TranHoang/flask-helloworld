@@ -23,11 +23,11 @@ Project Organization
     │   │    │
     │   │    └── utils.py           <- Application util functions.
     │   │
-    │   └── docs                    <- API endpoint documentation
+    │   └── doc                     <- API endpoint documentation
     │   │
     │   └── migrations              <- Database migration files
     │   │
-    │   ├── todo                    <- Authentication module
+    │   ├── todo                    <- Todo module
     │   │    │
     │   │    └── apis.py            <- ToDo Resource - Provide the Todo API.
     │   │    │
@@ -77,7 +77,7 @@ $ pip install -r requirements.txt
 
 #### Step 3: Setup the PYTHONPATH point to our application folder
 
-Append the following statements to the ~/.bash_profile or any start up script in your system.   
+Append the following statements to the ~/.bash_profile or any start up script in your system.
 
 ```
 export PYTHONPATH="${TODO_APP_FOLDER}/app-api/:$PYTHONPATH"
@@ -130,4 +130,4 @@ Technical Stack
 
 Additional Documentations
 ------------
-* [Todo Apis document](doc/apis/index.md)
+* [Todo Apis document](app-api/doc/index.md)
