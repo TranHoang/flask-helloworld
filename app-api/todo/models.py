@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask_sqlalchemy import BaseQuery
 
 from core.models import (
@@ -65,6 +66,12 @@ class Todo(db.Model, TimestampMixin):
     def update(self, data):
         for key,value in data.items():
             setattr(self, key, value)
+
+        if self.completed:
+            self.completed_date = datetime.utcnow()
+        else:
+            self.completed_date = None
+
         db.session.add(self)
         db.session.commit()
         return self
