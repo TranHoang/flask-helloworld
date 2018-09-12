@@ -34,11 +34,7 @@ todo_parser.add_argument('completed', type=bool)
 
 class TodoResource(Resource):
 
-    @jwt_required
-    @marshal_with(resource_fields)
-    def get(self, id):
-        user_id = get_jwt_identity()
-        print(user_id, id)
+    def get_todo(self, user_id, id):
         todo = Todo.query \
             .by_owner_and_id(user_id, id) \
             .first()
@@ -49,20 +45,31 @@ class TodoResource(Resource):
 
     @jwt_required
     @marshal_with(resource_fields)
+    def get(self, id):
+        user_id = get_jwt_identity()
+        return self.get_todo(user_id, id)
+
+    @jwt_required
+    @marshal_with(resource_fields)
     def put(self, id):
         """
-        Update an Todo item
+        Update a Todo item
         """
         data = todo_parser.parse_args()
         user_id = get_jwt_identity()
-        todo = Todo.query \
-            .by_owner_and_id(user_id, id) \
-            .first()
-        if todo is None:
-            abort(404)
+        todo = self.get_todo(user_id, id)
         todo.update(data)
         return todo
 
+    @jwt_required
+    def delete(self, id):
+        """
+        Delete a Todo item
+        """
+        user_id = get_jwt_identity()
+        todo = self.get_todo(user_id, id)
+        todo.delete()
+        return {'message': 'OK'}
 
 #################################################################
 # TodoListResource
