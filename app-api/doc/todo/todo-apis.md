@@ -107,3 +107,68 @@ http://127.0.0.1:5000/todo/1
     "message": "OK"
 }
 ```
+
+### GET /todos/completed
+----------------------------
+**Request**
+
+```
+curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer \
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.\
+eyJ0eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTM2Nzc0MzgzLCJqdGkiOiI4ZDQxODAzNC0wZmI2LTRjODQtYmU3Ni1jZDdmNzFkMTJkYzMiLCJpZ\
+GVudGl0eSI6MSwiZnJlc2giOmZhbHNlLCJuYmYiOjE1MzY3NjcxODMsImlhdCI6MTUzNjc2NzE4M30.\
+BVhtCxgh40UDR6cpsH7IGwOgiOYwrJ_T2vAbIfsOOpA" \
+--request GET \
+http://127.0.0.1:5000/todos/completed
+```
+
+**Response**
+
+```
+[{
+    "id": 6,
+    "completed": true,
+    "user_id": 1,
+    "title": "Task 06 - Update",
+    "due_date": "2018-09-10T17:21:07",
+    "completed_date": "2018-09-12T15:56:10"
+}]
+```
+
+### GET /todos/uncompleted
+----------------------------
+**Request**
+
+```
+curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer \
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.\
+eyJ0eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTM2Nzc0MzgzLCJqdGkiOiI4ZDQxODAzNC0wZmI2LTRjODQtYmU3Ni1jZDdmNzFkMTJkYzMiLCJpZ\
+GVudGl0eSI6MSwiZnJlc2giOmZhbHNlLCJuYmYiOjE1MzY3NjcxODMsImlhdCI6MTUzNjc2NzE4M30.\
+BVhtCxgh40UDR6cpsH7IGwOgiOYwrJ_T2vAbIfsOOpA" \
+--request GET \
+http://127.0.0.1:5000/todos/uncompleted
+```
+
+**Response**
+
+```
+[
+    {
+        "id": 2,
+        "completed": false,
+        "user_id": 1,
+        "title": "Task 01",
+        "due_date": "2018-09-10T16:21:07",
+        "completed_date": null
+    }, {
+        "id": 3,
+        "completed": false,
+        "user_id": 1,
+        "title": "Task 01",
+        "due_date": "2018-09-10T16:21:07",
+        "completed_date": null
+    }
+]
+```
