@@ -1,15 +1,17 @@
 # Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.
-# And before you ask: It's BSD licensed!
+# Homepage: http://flask.pocoo.org/
 flask==1.0.2
 
 # Flask-SQLAlchemy is an extension for Flask that adds support for SQLAlchemy to your application.
 # It requires SQLAlchemy 0.8 or higher.
 # It aims to simplify using SQLAlchemy with Flask by providing useful defaults 
 # and extra helpers that make it easier to accomplish common tasks.
+# Homepage: http://flask-sqlalchemy.pocoo.org/2.3/
 flask-sqlalchemy==2.3.2
 
-gunicorn==19.9.0
-
+# Flask-Migrate is an extension that handles SQLAlchemy database migrations
+# for Flask applications using Alembic
+# Homepage: https://flask-migrate.readthedocs.io/en/latest/
 flask-migrate==2.2.1
 
 # Flask-RESTful is an extension for Flask that adds support for quickly building REST APIs
@@ -20,6 +22,7 @@ flask-restful==0.3.6
 # Homepage: https://flask-bcrypt.readthedocs.io/en/latest/
 flask-bcrypt==0.7.1
 
+# Flask-JWT-Extended is a Flask extension that provides JSON Web Token utils.
 # Homepage: https://flask-jwt-extended.readthedocs.io/
 flask-jwt-extended==3.12.1
 
@@ -27,3 +30,7 @@ flask-jwt-extended==3.12.1
 # At its core it fully implements the Python DB API 2.0 specifications.
 # Homepage: http://initd.org/psycopg/
 psycopg2==2.7.5
+
+# Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX. It's used for heroku deployment.
+# Homepage: https://gunicorn.org/
+gunicorn==19.9.0
