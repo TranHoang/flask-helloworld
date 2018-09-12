@@ -50,7 +50,7 @@ class UserListResource(Resource):
     def post(self):
         data = parser.parse_args()
         user = User.create_new_user(data)
-        user.access_token = create_access_token(identity=user.email)
+        user.access_token = create_access_token(identity=user.id)
         return marshal(user, resource_fields)
 
 # Register API

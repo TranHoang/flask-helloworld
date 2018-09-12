@@ -2,7 +2,7 @@ from datetime import datetime
 
 from flask_sqlalchemy import SQLAlchemy
 
-# Shared db module between models.py inside modules (todo, user,...)
+# Shared db module for todo and user models.
 db = SQLAlchemy()
 
 class TimestampMixin(object):

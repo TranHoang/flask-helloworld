@@ -31,9 +31,15 @@ class TodoQuery(BaseQuery):
             .by_id(id)
 
     def by_owner(self, user_id):
+        """
+        Filter Todo by owner
+        """
         return self.filter_by(user_id=user_id)
 
     def by_id(self, id):
+        """
+        Filter Todo by Id
+        """
         return self.filter_by(id=id)
 
 class Todo(db.Model, TimestampMixin):
@@ -67,5 +73,3 @@ class Todo(db.Model, TimestampMixin):
         db.session.delete(self)
         db.session.commit()
         return self
-
-

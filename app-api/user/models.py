@@ -3,6 +3,9 @@ from flask_sqlalchemy import BaseQuery
 from core import bcrypt
 from core.models import db, TimestampMixin
 
+#################################################
+# User model and query set
+#################################################
 
 class UserQuery(BaseQuery):
     def get_by_id(self, id):
@@ -10,6 +13,7 @@ class UserQuery(BaseQuery):
 
     def get_by_email(self, email):
         return self.filter_by(email=email).first()
+
 
 class User(db.Model, TimestampMixin):
     query_class = UserQuery

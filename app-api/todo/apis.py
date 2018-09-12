@@ -71,6 +71,7 @@ class TodoResource(Resource):
         todo.delete()
         return {'message': 'OK'}
 
+
 #################################################################
 # TodoListResource
 # lets you POST to create a Todo item
@@ -91,7 +92,7 @@ class TodoListResource(Resource):
 
 
 #################################################################
-# TodoListResource
+# CompletedTodoListResource
 # lets you GET a list of completed todos
 #################################################################
 
@@ -107,7 +108,7 @@ class CompletedTodoListResource(Resource):
 
 
 #################################################################
-# TodoListResource
+# UnCompletedTodoListResource
 # lets you GET a list of completed todos
 #################################################################
 
