@@ -75,7 +75,7 @@ $ workon p-todo-app
 $ pip install -r requirements.txt
 ```
 
-#### Step 3: Setup the PYTHONPATH point to our application folder
+#### Step 2: Setup the PYTHONPATH point to our application folder
 
 Append the following statements to the ~/.bash_profile or any start up script in your system.
 
@@ -89,13 +89,13 @@ then execute the bash profile.
 $ source ~/.bash_profile
 ```
 
-#### Step 4: Database migration
+#### Step 3: Database migration
 
 ```
 ./bin/flask-upgrade.sh
 ```
 
-#### Step 5: Start the appliation server
+#### Step 4: Start the application server
 
 ```
 ./bin/flask-run.sh
