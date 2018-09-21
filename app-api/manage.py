@@ -6,6 +6,7 @@ from core import app
 import auth
 import user
 import todo
+import health
 
 if __name__ == '__main__':
     app.run()
