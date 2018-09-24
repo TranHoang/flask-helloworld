@@ -8,7 +8,8 @@ services:
     volumes:
       # Remaps the volume for live editing
       - .:/app
-    
+    env_file: 
+      - local.env
     # Run the flask server
     command: bin/flask-run.sh
 
