@@ -1,2 +1,2 @@
-release: flask db upgrade -d app-api/migrations
-web: gunicorn app-api:app
+release: flask db upgrade -d src/migrations
+web: gunicorn manage:app

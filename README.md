@@ -4,8 +4,11 @@ This code base provides the backend apis for Todo application.
 
 Project Organization
 ------------
-
-    ├── app-api                     <- Contains all todo application's modules
+    ├── bin                         <- Bash scripts to start flask server, migration tools.
+    │
+    ├── doc                         <- API documentation.
+    │
+    ├── src                         <- Contains all todo application's modules
     │   │
     │   ├── auth                    <- Authentication module
     │   │    │
@@ -23,8 +26,6 @@ Project Organization
     │   │    │
     │   │    └── utils.py           <- Application util functions.
     │   │
-    │   └── doc                     <- API endpoint documentation
-    │   │
     │   └── migrations              <- Database migration files
     │   │
     │   ├── todo                    <- Todo module
@@ -41,6 +42,10 @@ Project Organization
     │   │
     │   └── manage.py               <- Flask application executation file.
     │
+    ├── docker-compose.yml          <- Docker compose file to start containers: api and migrate.
+    │
+    ├── Dockerfile                  <- Docker build configuration file.
+    │
     ├── Procfile                    <- Heroku deployment file.
     |
     ├── README.md                   <- The top-level README for developers using this project.
@@ -54,8 +59,22 @@ Development Environment setup for local
 
     - Git
     - Python 3.5.0
+    - Docker
 
 ### Get Started
+
+There are 2 ways to start the application on local.
+
+### 1. By Docker
+
+```
+<!-- Migration data -->
+docker-compose up migrate
+<!-- Start flask application -->
+docker-compose up api
+```
+
+### 2. Without Docker
 
 The easiest way to work with the backend application is to run it as a standalone server.
 You would need to install [Virtual Environment Wrapper](https://virtualenvwrapper.readthedocs.io).
@@ -126,8 +145,8 @@ Technical Stack
     - Psycopg is the most popular PostgreSQL adapter for the Python programming language.
 
 * [Gunicorn](https://gunicorn.org/)
-    - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX. It's used for heroku deployment.
+  * Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX. It's used for heroku deployment.
 
 Additional Documentations
 ------------
-* [Todo Apis document](app-api/doc/index.md)
+* [Todo Apis document](doc/index.md)
