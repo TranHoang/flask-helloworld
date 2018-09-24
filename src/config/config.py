@@ -13,7 +13,6 @@ class BaseConfig():
     """
     Base application configuration
     """
-    DEBUG = False
     SECRET_KEY = os.getenv('SECRET_KEY', 'invisible_key')
     JWT_SECRET_KEY = 'super-secret'
     # Config JWT expires time in minutes
@@ -24,7 +23,6 @@ class DevelopmentConfig(BaseConfig):
     """
     Configuration for development env
     """
-    DEBUG = True
     # Issue: If we use relative path the bin folder and flask app in src folder will point 2
     # different DB file.
     # Fixed: Convert DB file relative path to absolute path to put 
@@ -38,5 +36,4 @@ class ProductionConfig(BaseConfig):
     """
     Configuration for production env
     """
-    DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', postgres_uri)
