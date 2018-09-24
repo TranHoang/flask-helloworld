@@ -7,7 +7,7 @@ def get_application_config():
     """
     # Load configuration
     env = os.getenv('FLASK_ENV', 'development')
-    if env == 'Development':
+    if env == 'development':
         app_settings = DevelopmentConfig
     elif env == 'production':
         app_settings = ProductionConfig
