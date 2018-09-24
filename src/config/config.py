@@ -25,7 +25,13 @@ class DevelopmentConfig(BaseConfig):
     Configuration for development env
     """
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', "sqlite:///../db.sqlite3")
+    # Issue: If we use relative path the bin folder and flask app in src folder will point 2
+    # different DB file.
+    # Fixed: Convert DB file relative path to absolute path to put 
+    # the bin folder outside of the src folder.
+
+    db_path = os.path.abspath("../db.sqlite3")
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', "sqlite:////%s" % db_path)
 
 
 class ProductionConfig(BaseConfig):
