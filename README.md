@@ -46,6 +46,8 @@ Project Organization
     │
     ├── Dockerfile                  <- Docker build configuration file.
     │
+    ├── local.env                   <- Local environment variable for docker compose.
+    │
     ├── Procfile                    <- Heroku deployment file.
     |
     ├── README.md                   <- The top-level README for developers using this project.
