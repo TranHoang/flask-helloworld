@@ -2,7 +2,7 @@ from flask import Flask
 from config import get_application_config
 
 def create_app(name):
-    app = Flask(__name__)
+    app = Flask(__name__, template_folder='../templates')
     # Load configuration
     app_settings = get_application_config()
     app.config.from_object(app_settings)
