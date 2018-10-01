@@ -5,7 +5,7 @@
             domain: "{{auth0Config['domain']}}",
             responseType: 'token id_token',
             audience: "{{auth0Config['audience']}}",
-            redirectUri: "{{auth0Config['redirectUri']}}",
+            redirectUri: "{{auth0Config['spaRedirectUri']}}",
             scope: 'openid profile'
     });
 
@@ -22,7 +22,6 @@
 <div class="login-box auth0-box before">
     <img src="https://i.cloudup.com/StzWWrY34s.png" />
     <h3>Auth0 Examples</h3>
-    
     <h4>1. SPA (Single Page Application) Authentication.</h4>
     <a href="https://auth0.com/docs/quickstart/spa">Document</a>
     <p>This method use the route <b>"/spa-callback"</b> to handle the 0Auth Authentication.
