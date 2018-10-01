@@ -34,3 +34,17 @@ psycopg2==2.7.5
 # Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX. It's used for heroku deployment.
 # Homepage: https://gunicorn.org/
 gunicorn==19.9.0
+
+# The ultimate Python library in building OAuth and OpenID Connect servers.
+# JWS, JWK, JWA, JWT are included.
+# Homepage: https://authlib.org/
+authlib==0.9
+
+# Cryptography is a package which provides cryptographic recipes and primitives to Python developers.
+# We use it to retrieve Auth0 public key from X509.
+# Homepage: https://github.com/pyca/cryptography
+cryptography==2.3.1
+
+# An encode / decode JSON Web Token follow RFC 7519
+# Homepage: http://github.com/jpadilla/pyjwt
+PyJWT==1.4.2
