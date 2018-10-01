@@ -1,0 +1,41 @@
+<script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js"></script>
+<script>
+    var auth0 = new auth0.WebAuth({
+            clientID: "{{auth0Config['clientId']}}",
+            domain: "{{auth0Config['domain']}}",
+            responseType: 'token id_token',
+            audience: "{{auth0Config['audience']}}",
+            redirectUri: "{{auth0Config['redirectUri']}}",
+            scope: 'openid profile'
+    });
+
+    function login(loginType) {
+        if (loginType == "SPA") {
+            auth0.authorize();
+            return false;
+        } else {
+            window.location.href = "{{auth0Config['audience']}}/login";
+            return true;
+        }
+    };
+</script>
+<div class="login-box auth0-box before">
+    <img src="https://i.cloudup.com/StzWWrY34s.png" />
+    <h3>Auth0 Examples</h3>
+    
+    <h4>1. SPA (Single Page Application) Authentication.</h4>
+    <a href="https://auth0.com/docs/quickstart/spa">Document</a>
+    <p>This method use the route <b>"/spa-callback"</b> to handle the 0Auth Authentication.
+       Please remember to: Update your callback url in the 0Auth application setting page. 
+    </p>
+    <a href="#" onclick="login('SPA');">Log In</a>
+
+    
+    <h4>2. Traditional server rendered web app.</h4>
+    <a href="https://auth0.com/docs/quickstart/webapp/python">Document</a>
+    <p>This method use the route <b>"/callback"</b> to handle the 0Auth Authentication. 
+        Please remember to: Update your callback url in the 0Auth application setting page. 
+    </p>
+    <a href="#" onclick="login('Server');">Log In</a>
+
+</div>

@@ -1,0 +1,33 @@
+<script src="https://cdn.auth0.com/js/auth0/9.5.1/auth0.min.js"></script>
+<div>
+    <p>Use the access token to access to endpoint API.</p>
+    Token Id: <label id="tokenId"></label>
+    </p>
+    Access Token: <label id="token"></label>
+</div>
+<script>
+    var auth0 = new auth0.WebAuth({
+            clientID: "{{auth0Config['clientId']}}",
+            domain: "{{auth0Config['domain']}}",
+            responseType: 'token id_token',
+            audience: "{{auth0Config['audience']}}",
+            redirectUri: "{{auth0Config['redirectUri']}}",
+            scope: 'openid profile'
+    });
+
+    auth0.parseHash((err, authResult) => {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+        window.location.hash = '';
+        // Store the authResult in local storage and redirect the user elsewhere
+        localStorage.setItem('access_token', authResult.accessToken);
+        localStorage.setItem('id_token', authResult.idToken);
+
+        // Display on GUI
+        document.getElementById('tokenId').innerHTML = authResult.accessToken.toString();
+        document.getElementById('token').innerHTML = authResult.idToken.toString();
+    } else if (err) {
+        window.console.log('Error');
+        // Handle authentication error, for example by displaying a notification to the user
+    }
+});
+</script>
