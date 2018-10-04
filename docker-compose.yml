@@ -1,8 +1,7 @@
 version: "2"
 services:
   api:
-    build: .
-    image: tranhoangnguyen/flask-todo-app:develop
+    image: tranhoangnguyen/flask-todo:latest
     ports:
       - "5000:5000"
     volumes:
@@ -14,8 +13,7 @@ services:
     command: bin/flask-run.sh
 
   migrate:
-    build: .
-    image: tranhoangnguyen/flask-todo-app:develop
+    image: tranhoangnguyen/flask-todo:latest
     volumes:
       - .:/app
 
