@@ -1,7 +1,9 @@
 import os
 
 import pytest
+from faker import Faker
 import flask_migrate
+
 
 from core import app
 from todo.models import Todo
@@ -30,3 +32,10 @@ def client():
         flask_migrate.upgrade(directory="src/migrations")
 
     return client
+
+@pytest.fixture(scope="session")
+def fake():
+    """
+    Initialize faker.Faker instance to generate dummy testing data such as: Name, Email,...
+    """
+    return Faker()
