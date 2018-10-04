@@ -1,7 +1,6 @@
 from flask import abort
 from flask_restful import (
     Resource,
-    Api,
     fields,
     marshal_with,
     marshal,

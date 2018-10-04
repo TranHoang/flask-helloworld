@@ -7,6 +7,7 @@ from flask_restful import(
     marshal,
     marshal_with,
     fields)
+from flask_restful.inputs import boolean
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from core.utils import date_time_parsing, SerializeDateTime
 from core import api
@@ -29,7 +30,7 @@ resource_fields = {
 todo_parser = reqparse.RequestParser()
 todo_parser.add_argument('title', type=str)
 todo_parser.add_argument('due_date', type=date_time_parsing)
-todo_parser.add_argument('completed', type=bool)
+todo_parser.add_argument('completed', type=boolean)
 
 
 class TodoResource(Resource):

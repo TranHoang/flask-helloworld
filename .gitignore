@@ -127,5 +127,10 @@ dmypy.json
 pyvenv.cfg
 pip-selfcheck.json
 
+### Python.VSCode Stack ###
+.vscode
+
+### Python.Unittest Stack ###
+db_test.sqlite3
 
 # End of https://www.gitignore.io/api/python

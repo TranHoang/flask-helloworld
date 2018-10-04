@@ -1,3 +1,7 @@
+############################################################ 
+# Libraries for development
+############################################################
+
 # Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.
 # Homepage: http://flask.pocoo.org/
 flask==1.0.2
@@ -34,3 +38,22 @@ psycopg2==2.7.5
 # Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX. It's used for heroku deployment.
 # Homepage: https://gunicorn.org/
 gunicorn==19.9.0
+
+
+############################################################ 
+# Libraries for unittest
+############################################################
+
+# pytest is a mature full-featured Python testing tool that helps you write better programs.
+# Homepage: https://docs.pytest.org/en/latest/
+pytest==3.8.2
+
+# Coverage.py is a tool for measuring code coverage of Python programs.
+# It monitors your program, noting which parts of the code have been executed,
+# then analyzes the source to identify code that could have been executed but was not.
+# Homepage: https://coverage.readthedocs.io/en/coverage-4.5.1x/
+coverage==4.5.1
+
+# Faker is a Python package that generates fake data for you.
+# Homepage: https://github.com/joke2k/faker
+Faker==0.9.1
